@@ -23,4 +23,10 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+button{
+  border-radius: 10px;
+  border: solid 1px black;
+  background-color: white;
+  color: black;
+}
 </style>
