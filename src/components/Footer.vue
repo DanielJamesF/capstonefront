@@ -17,9 +17,8 @@
           <br />
           <router-link to="/contact">- Contact us</router-link>
         </div>
-      <!-- </div> -->
     </div>
-    <p>&copy;Copyright. All Rights Reserved by Sua Loja de Animais.</p>
+    <p>&copy;Copyright. All Rights Reserved by dotPetStore.</p>
   </div>
 </template>
 
@@ -28,21 +27,7 @@ export default {};
 </script>
 
 <style scoped>
-.container-fluid {
-  background-color: #e3f2fd;
+.container-fluid{
   border-top: solid black 1px;
-}
-a {
-  text-decoration: none;
-}
-#links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#links2 {
-    display: flex;
-    flex-direction: column;
-    font-size: 15px;
 }
 </style>

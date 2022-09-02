@@ -4,53 +4,53 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('../views/Home.vue')
+    component: () => import('../views/home.vue')
   },
   {
     path: '/about',
     name: 'about',
-    component: () => import('../views/AboutView.vue')
+    component: () => import('../views/about.vue')
   },
   {
     path: '/products',
     name: 'products',
-    component: () => import('../views/Products.vue')
+    component: () => import('../views/allproducts.vue')
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import('../views/Login.vue')
+    component: () => import('../views/login.vue')
   },
   {
     path: '/register',
     name: 'register',
-    component: () => import('../views/Register.vue')
+    component: () => import('../views/register.vue')
   },
   {
     path: '/products/:id',
     name: 'product',
-    component: () => import('../views/singleProduct.vue'),
+    component: () => import('../views/singleproduct.vue'),
     props: true
   },
   {
     path: '/admin',
     name: 'admin',
-    component: () => import('../views/Admin.vue'),
+    component: () => import('../views/admin.vue'),
   },
   {
     path: '/users',
     name: 'users',
-    component: () => import('../views/Users.vue'),
+    component: () => import('../views/users.vue'),
   },
   {
     path: '/cart',
     name: 'cart',
-    component: () => import('../views/Cart.vue'),
+    component: () => import('../views/cart.vue'),
   },
   {
     path: '/contact',
     name: 'contact',
-    component: () => import('../views/Contact.vue')
+    component: () => import('../views/contact.vue')
   }
 ]
 

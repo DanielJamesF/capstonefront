@@ -1,8 +1,5 @@
 <template>
-  <nav
-    class="navbar navbar-expand-md sticky-top"
-    style="background-color: #e3f2fd"
-  >
+  <nav class="navbar navbar-expand-md sticky-top">
     <div class="container-fluid">
       <div id="div" class="nav-item">
         <router-link :to="{ name: 'home' }">
@@ -39,7 +36,7 @@
 
             <router-link to="/cart">
               <button class="btn rounded-pill">
-                <i class="fs-4 fa-solid fa-cart-shopping">{{ num }}</i>
+                <span>Cart({{ num }})</span>
               </button>
             </router-link>
           </div>
@@ -104,12 +101,15 @@ export default {
 </script>
 
 <style scoped>
+.navbar{
+  border-bottom: solid 1px black;
+  background-color: white;
+}
 img {
   right: 0;
   height: 5em;
   padding: 2px;
 }
-
 #div span {
   padding: 3px;
 }
@@ -126,17 +126,14 @@ img {
     display: none;
   }
 }
-
 nav a {
   font-size: 17px;
   color: black;
   text-decoration: none;
 }
-
 nav a.router-link-exact-active {
   color: blue;
 }
-
 nav a:hover {
   color: lightslategrey;
 }

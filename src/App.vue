@@ -8,10 +8,7 @@
 import Navbar from "./components/Navbar.vue";
 import Footer from "./components/Footer.vue";
 export default {
-  components: {
-    Navbar,
-    Footer,
-  },
+  components: { Navbar, Footer },
 };
 </script>
 
@@ -22,11 +19,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-button{
-  border-radius: 10px;
-  border: solid 1px black;
-  background-color: white;
-  color: black;
 }
 </style>
