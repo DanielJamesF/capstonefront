@@ -78,7 +78,7 @@ export default createStore({
           context.dispatch("getProducts");
         });
     },
-    // updates list
+    // update product
     updateProduct: async (context, product) => {
       fetch("https://capstoneapibackend.herokuapp.com/products/" + product.id, {
           method: "PUT",

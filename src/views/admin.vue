@@ -1,83 +1,79 @@
 <template>
-<section id="admin" class="p-5" v-if="admin">
-  <div v-if="user">
-    <div v-if="products">
-      <div class="container text-center">
-        <h2 class="text-black">User: {{ user.firstname }}</h2>
-        <table class="table ">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Product Name</th>
-              <th scope="col">Product Price</th>
-              <th scope="col">User ID</th>
-              <th scope="col">
-                <a data-bs-toggle="modal" data-bs-target="#addnew" class="btn">
-                  <i class="fa-regular fa-square-plus"></i>
-                </a>
-              </th>
+  <section id="admin" class="p-5">
+    <div v-if="admin">
+      <div v-if="products">
+        <div class="container text-center">
+          <h2>User: {{ user.firstname }}</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Product title</th>
+                <th scope="col">Product price</th>
+                <th scope="col">User id</th>
+                <th scope="col">
+                  <a
+                    data-bs-toggle="modal"
+                    data-bs-target="#addnew"
+                    class="btn"
+                  >
+                    <i class="fa-regular fa-square-plus"></i>
+                  </a>
+                </th>
+              </tr>
+            </thead>
+            <tr v-for="product in products" :key="product">
+              <td>{{ product.id }}</td>
+              <td>{{ product.title }}</td>
+              <td>R{{ product.price }}.00</td>
+              <td>{{ product.userid }}</td>
+              <td>
+                <a
+                  type="button"
+                  class="btn"
+                  data-bs-toggle="modal"
+                  :data-bs-target="'#update' + product.id"
+                  ><i class="fa-solid fa-pen-to-square"></i
+                ></a>
+                <a
+                  class="btn"
+                  id="delete"
+                  @click="$store.dispatch('deleteProduct', product.id)"
+                  ><i class="fa-solid fa-trash-can"></i
+                ></a>
+              </td>
+              <updateModal :product="product" />
             </tr>
-          </thead>
-          <tr v-for="product in products" :key="product">
-            <td>{{ product.id }}</td>
-            <td>{{ product.title }}</td>
-            <td>R{{ product.price }}.00</td>
-            <td>{{ product.userid }}</td>
-
-            <!-- icons -->
-            <td>
-              <!-- Update -->
-              <a
-                type="button"
-                class="btn"
-                data-bs-toggle="modal"
-                :data-bs-target="'#update' + product.id"
-                ><i class="fa-solid fa-pen-to-square"></i
-              ></a>
-
-              <!-- Delete -->
-              <a
-                class="btn"
-                id="delete"
-                @click="$store.dispatch('deleteProduct', product.id)"
-                ><i class="fa-solid fa-trash-can"></i
-              ></a>
-            </td>
-            <UpdateModal :product="product" />
-          </tr>
-        </table>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
-
-  <!--  -->
-  <CreateModal />
-  <!--  -->
-</section>
-  <div id="else" v-else class="text-center d-flex flex-column">
-    <h1>
-      Only Admins are allowed to view this page
-    </h1>
-
-    <router-link :to="{name: 'home'}" class="btn border-dark nav-link">
-    <p>Return home</p></router-link>
-  </div>
+    <div id="else" v-else class="text-center">
+      <h1>Unauthorised access</h1>
+      <p>sorry only admins are allowed to view this page</p>
+      <router-link :to="{ name: 'home' }" class="nav-link">
+        <button type="button" class="btn border border-2 border-dark">
+          Return home
+        </button></router-link
+      >
+    </div>
+    <createModal />
+  </section>
 </template>
 
 <script>
-import CreateModal from "@/components/createModal.vue";
-import UpdateModal from "@/components/updateModal.vue";
+import createModal from "@/components/createModal.vue";
+import updateModal from "@/components/updateModal.vue";
 
 export default {
-  components: { CreateModal, UpdateModal },
-  mounted() {
-    this.$store.dispatch("getProducts");
+  components: {
+    createModal,
+    updateModal,
   },
   computed: {
     products() {
       return this.$store.state.products;
     },
-    // returns value from store
     user() {
       return this.$store.state.user;
     },
@@ -85,18 +81,18 @@ export default {
       return this.$store.state.admin;
     },
   },
+  mounted() {
+    this.$store.dispatch("getProducts");
+  },
 };
 </script>
 
 <style scoped>
-.container {
+#admin {
   min-height: 100vh;
 }
 #else {
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 th {
   color: black;

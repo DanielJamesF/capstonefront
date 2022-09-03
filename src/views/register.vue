@@ -1,7 +1,16 @@
 <template>
-  <div class="container-fluid text-center d-flex justify-content-center align-items-center">
+  <div
+    class="
+      container-fluid
+      text-center
+      d-flex
+      justify-content-center
+      align-items-center
+    "
+  >
     <div class="row">
-      <form id="register"
+      <form
+        id="register"
         class="form-control mx-auto border-dark rounded-0 shadow"
         @submit.prevent="register"
       >
@@ -44,8 +53,16 @@
             required
           />
         </div>
-        <button type="submit" class="border-dark border-1 rounded my-1">Register</button>
+        <button type="submit" class="border-dark border-1 rounded my-1">
+          Register
+        </button>
       </form>
+      <p>
+        oh wait i've been here before maybe i should
+        <router-link :to="{ name: 'login' }"
+          ><a class="nav-link">Login</a>
+        </router-link>
+      </p>
     </div>
   </div>
 </template>
@@ -83,16 +100,17 @@ export default {
 
 <style scoped>
 .container-fluid {
-    min-height: 100vh;
+  min-height: 100vh;
+  background-color: rgb(142, 142, 142);
 }
-form{
-    width: fit-content;
+form {
+  width: fit-content;
 }
-label{
-    float: left;
-    padding-left: 10px;
+label {
+  float: left;
+  padding-left: 10px;
 }
-button:hover{
-    background-color: rgb(151, 149, 149);
+button:hover {
+  background-color: rgb(151, 149, 149);
 }
 </style>

@@ -27,7 +27,7 @@
           <div
             v-for="product in products"
             :key="product"
-            class="card p-3 mx-auto my-3 border-dark shadow"
+            class="card p-3 mx-auto my-3 border-dark rounded-0 shadow"
             style="width: 18rem; height: fit-content"
           >
             <div class="my-auto">
@@ -94,6 +94,7 @@ export default {
 <style scoped>
 #products {
   min-height: 100vh;
+  background-color: rgb(142, 142, 142);
 }
 .card-img-top{
     aspect-ratio: 1;

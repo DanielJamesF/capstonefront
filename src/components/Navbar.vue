@@ -1,11 +1,11 @@
 <template>
-  <nav class="navbar navbar-expand-md sticky-top">
+  <nav class="navbar navbar-expand-md sticky-top active">
     <div class="container-fluid">
       <div id="div" class="nav-item">
         <router-link :to="{ name: 'home' }">
           <img
-            class="img-fluid"
-            src=""
+            class="img-fluid rounded-circle border border-dark border-2" style="width: 4rem; height: fit-content;"
+            src="https://i.postimg.cc/y8Z21msP/dotpetstore-1.png"
             alt="logo"
           />
         </router-link>
@@ -33,14 +33,15 @@
             <router-link to="/contact">
               <a class="nav-link">Contact</a>
             </router-link>
-
             <router-link to="/cart">
-              <button class="btn rounded-pill">
-                <span>Cart({{ num }})</span>
+              <button class="btn">
+                Cart
+                <!-- ({{ num }}) -->
               </button>
             </router-link>
           </div>
-          <div v-if="admin" class="d-md-flex">
+          <!-- v-if="admin" -->
+          <div  class="d-md-flex">
             <router-link to="/admin">
               <a class="nav-link">Admin</a>
             </router-link>
@@ -103,7 +104,7 @@ export default {
 <style scoped>
 .navbar{
   border-bottom: solid 1px black;
-  background-color: white;
+  background-color: rgb(30, 30, 98);
 }
 img {
   right: 0;
@@ -113,7 +114,7 @@ img {
 #div span {
   padding: 3px;
 }
-@media (max-width: 365px) {
+/* @media (max-width: 365px) {
   #go {
     height: 20px;
   }
@@ -125,7 +126,7 @@ img {
   #div {
     display: none;
   }
-}
+} */
 nav a {
   font-size: 17px;
   color: black;
@@ -136,5 +137,14 @@ nav a.router-link-exact-active {
 }
 nav a:hover {
   color: lightslategrey;
+}
+.img-fluid{
+  transition: transform .8s ease-in-out
+}
+.img-fluid:hover{
+  transform: rotate(360deg);
+}
+button{
+  color: black;
 }
 </style>

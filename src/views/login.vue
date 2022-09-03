@@ -69,6 +69,7 @@ export default {
 <style scoped>
 #loginPage {
   min-height: 100vh;
+  background-color: rgb(142, 142, 142);
   display: flex;
   justify-content: center;
   align-items: center;

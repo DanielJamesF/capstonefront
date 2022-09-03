@@ -27,7 +27,7 @@
         <div class="col-md-4">
           <div class="row">
             <div class="col">
-              <div class="card m-3 p-3 border-dark rounded-0 shadow">
+              <!-- <div class="card m-3 p-3 border-dark rounded-0 shadow">
                 <h2 id="total1"><span>Cart Summary</span></h2>
                 <div v-for="item in cart" :key="item" :item="item" class="row">
                   <div class="col-md-7">
@@ -45,7 +45,7 @@
                   <span class="fw-bolder">Total:</span>(
                   <span>{{ num }} item</span> ) <span>R{{ total }}.00</span>
                 </p>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

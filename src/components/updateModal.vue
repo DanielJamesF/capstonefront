@@ -61,7 +61,7 @@
 
             <!-- category -->
             <div class="mb-3">
-              <label for="updatePrice" class="form-label">Product Category</label>
+              <label for="updatePrice" class="form-label">Product Description</label>
               <input
                 class="form-control"
                 type="text"
