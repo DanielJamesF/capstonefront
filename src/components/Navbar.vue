@@ -4,7 +4,8 @@
       <div id="div" class="nav-item">
         <router-link :to="{ name: 'home' }">
           <img
-            class="img-fluid rounded-circle border border-dark border-2" style="width: 4rem; height: fit-content;"
+            class="img-fluid rounded-circle border border-dark border-2"
+            style="width: 4rem; height: fit-content"
             src="https://i.postimg.cc/y8Z21msP/dotpetstore-1.png"
             alt="logo"
           />
@@ -21,17 +22,14 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarNav">
         <div class="navbar-nav">
-          <div v-if="user" class="d-md-flex">
-            <router-link to="/">
-              <a class="nav-link">Home</a>
+          <div v-if="user" class="d-md-flex align-items-center">
+            <router-link to="/">Home
             </router-link>
-            <router-link to="/products">
-              <a class="nav-link">Products</a>
+            <router-link to="/products">Products
             </router-link>
-            <router-link to="/contact">
-              <a class="nav-link">Contact</a>
+            <router-link to="/contact">Contact
             </router-link>
             <router-link to="/cart">
               <button class="btn">
@@ -40,24 +38,21 @@
               </button>
             </router-link>
           </div>
-          <!-- v-if="admin" -->
-          <div  class="d-md-flex">
-            <router-link to="/admin">
-              <a class="nav-link">Admin</a>
+          <div class="d-md-flex align-items-center" v-if="admin">
+            <router-link to="/admin">Admin
             </router-link>
-            <router-link to="/users">
-              <a class="nav-link">Users</a>
+            <router-link to="/users">Users
             </router-link>
           </div>
           <div v-if="user">
-            <button class="btn" @click="logout">Logout</button>
+            <router-link :to="{ name: 'home' }">
+              <button class="btn" @click="logout">Logout</button>
+            </router-link>
           </div>
           <div v-else class="d-md-flex">
-            <router-link to="/login">
-              <a class="nav-link">Login</a>
+            <router-link to="/login">Login
             </router-link>
-            <router-link to="/register">
-              <a class="nav-link">Register</a>
+            <router-link to="/register">Register
             </router-link>
           </div>
         </div>
@@ -102,7 +97,7 @@ export default {
 </script>
 
 <style scoped>
-.navbar{
+.navbar {
   border-bottom: solid 1px black;
   background-color: rgb(30, 30, 98);
 }
@@ -114,37 +109,25 @@ img {
 #div span {
   padding: 3px;
 }
-/* @media (max-width: 365px) {
-  #go {
-    height: 20px;
-  }
-  #I {
-    height: 30px;
-  }
-}
-@media (max-width: 224px) {
-  #div {
-    display: none;
-  }
-} */
 nav a {
   font-size: 17px;
   color: black;
   text-decoration: none;
+  padding: 4px;
 }
 nav a.router-link-exact-active {
-  color: blue;
+  color: lightsteelblue;
 }
 nav a:hover {
   color: lightslategrey;
 }
-.img-fluid{
-  transition: transform .8s ease-in-out
+.img-fluid {
+  transition: transform 0.8s ease-in-out;
 }
-.img-fluid:hover{
+.img-fluid:hover {
   transform: rotate(360deg);
 }
-button{
+button {
   color: black;
 }
 </style>

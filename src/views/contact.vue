@@ -46,7 +46,7 @@
         rows="2"
         placeholder="leave a message"
       ></textarea>
-      <button type="submit" class="btn"><span> Submit</span></button>
+      <button type="submit" class="btn m-1"><span> Submit</span></button>
     </form>
   </div>
 </template>
@@ -58,6 +58,7 @@ export default {};
 <style scoped>
 .container-fluid {
   min-height: 100vh;
+  background-color: rgb(142, 142, 142);
   display: flex;
   justify-content: center;
   align-items: center;

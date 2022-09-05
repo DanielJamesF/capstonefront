@@ -175,7 +175,7 @@ export default createStore({
             context.commit("setuser", user);
             context.commit("setToken", token);
             context.commit("setcart", cart);
-            if (user.usertype === "Admin") {
+            if (user.role === "admin") {
               context.state.admin = true
             }
             console.log(context.state.admin)

@@ -5,9 +5,9 @@
       <div id="links" class="col d-flex flex-column align-items-start">
         <h1>About us</h1>
         <router-link to="/">Home</router-link>
-        <router-link to="/about">About</router-link>
         <router-link to="/login">Login</router-link>
         <router-link to="/register">Register</router-link>
+        <router-link to="/about">About</router-link>
         <router-link to="/contact">Contact us</router-link>
       </div>
     </div>
@@ -33,6 +33,9 @@ export default {};
 a{
   text-decoration: none;
   color: black;
+}
+a.router-link-exact-active {
+  color: lightsteelblue;
 }
 a:hover{
   color: blue;
