@@ -19,7 +19,7 @@ export default {};
 <style scoped>
 #home {
   overflow-x: hidden;
-  height: 87vh;
+  height: 100vh;
   background-image: url("https://i.postimg.cc/W4G8JSzp/puppy.jpg");
   background-color: rgb(73, 73, 137);
   background-blend-mode: multiply;

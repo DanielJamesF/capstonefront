@@ -7,7 +7,7 @@
     aria-hidden="true"
   >
     <div class="modal-dialog modal-lg">
-      <div class="modal-content">
+      <div class="modal-content rounded-0 shadow">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
             Update User {{ user.id }}
@@ -23,7 +23,7 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md">
               <div class="mb-3">
                 <label for="updateFirstName" class="form-label">Name:</label>
                 <input
@@ -47,7 +47,7 @@
                 />
               </div>
               <div class="mb-3">
-                <label for="updateimg" class="form-label">Email </label>
+                <label for="updateEmail" class="form-label">Email: </label>
                 <input
                   class="form-control"
                   type="text"
@@ -57,18 +57,15 @@
                   placeholder="Enter Email"
                 />
               </div>
-            </div>
-            <div class="col-md-6">
               <div class="mb-3">
-                <label for="updatePrice" class="form-label">User role</label>
+                <label for="updatepassord" class="form-label">Password: </label>
                 <input
                   class="form-control"
                   type="text"
-                  name="updateRole"
-                  id="updateRole"
-                  v-model="user.role"
-                  placeholder="Enter Rolee"
-                  required
+                  name="updatePassword"
+                  id="updatePassword"
+                  v-model="user.password"
+                  placeholder="Enter Password"
                 />
               </div>
             </div>
@@ -109,4 +106,11 @@ export default {
 </script>
 
 <style scoped>
+label{
+    float: left;
+    padding: 10px;
+}
+input:hover{
+    border: solid 1px black;
+}
 </style>

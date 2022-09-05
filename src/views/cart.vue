@@ -2,25 +2,22 @@
   <section id="cart">
     <div v-if="cart" class="p-3 m-1">
       <div class="row gap-2 mx-auto">
-        <button class="btn border-dark" @click="removeAll">
-          <span> Remove all</span>
-        </button>
         <div class="col-md-6">
           <div
-            v-for="item in cart"
-            :key="item"
-            :item="item"
+            v-for="product in cart"
+            :key="product"
+            :product="product"
             class="card p-3 border-dark rounded-0 shadow"
             style="width: 18rem; height: fit-content"
           >
-            <h2>{{ item.title }}</h2>
-            <img :src="item.image" alt="" />
-            <h2>{{ item.id }}</h2>
+            <h2>{{ product.title }}</h2>
+            <img :src="product.image" alt="" />
+            <h2>{{ product.id }}</h2>
             <button
               class="btn border-dark"
               @click="$store.dispatch('removeOne', product.id)"
             >
-              <span> Delete</span>
+              <span>Delete</span>
             </button>
           </div>
         </div>
@@ -48,6 +45,9 @@
               </div> -->
             </div>
           </div>
+        <button class="btn" @click="removeAll">
+          <span> Remove all</span>
+        </button>
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@
 <script>
 export default {
   mounted() {
-    this.$store.dispatch("getuser")
+    this.$store.dispatch("getusers");
   },
   computed: {
     cart() {
@@ -95,6 +95,7 @@ export default {
 <style scoped>
 #cart {
   min-height: 100vh;
+  padding-top: 20px;
 }
 
 #else {
@@ -116,7 +117,7 @@ img {
   border-top: solid 1px black;
   border-bottom: solid 1px black;
 }
-.btn:hover{
-    background-color: rgb(188, 188, 188);
+.btn:hover {
+  background-color: rgb(188, 188, 188);
 }
 </style>

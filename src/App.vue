@@ -1,6 +1,8 @@
 <template>
   <Navbar />
-  <router-view />
+  <div id="routerview">
+    <router-view />
+  </div>
   <Footer />
 </template>
 
@@ -19,5 +21,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+#routerview{
+  padding-top: 10px;
+  background-color: rgb(142, 142, 142);
 }
 </style>

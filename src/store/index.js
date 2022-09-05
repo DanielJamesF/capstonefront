@@ -105,7 +105,6 @@ export default createStore({
         .then((res) => res.json())
         .then(() => context.dispatch("getProducts"));
     },
-
     // adds user to db
     register: async (context, payload) => {
       const {
@@ -147,7 +146,6 @@ export default createStore({
           }
         });
     },
-
     // logs user in
     login: async (context, payload) => {
       const {
@@ -175,6 +173,7 @@ export default createStore({
             context.commit("setuser", user);
             context.commit("setToken", token);
             context.commit("setcart", cart);
+            context.dispatch("getusers");
             if (user.role === "admin") {
               context.state.admin = true
             }
@@ -186,13 +185,25 @@ export default createStore({
             alert(data.msg)
           }
         });
-    },
-
+      },
+      // retrieves all users
+      getusers: async (context) => {
+        fetch("https://capstoneapibackend.herokuapp.com/users", {
+            headers: {
+              "x-auth-token": await context.state.token,
+            },
+          })
+          .then((res) => res.json())
+          .then((data) => {
+            context.commit("setusers", data.results);
+          });
+      },
     // Deletes user from db
     deleteuser: async (context, id) => {
-      fetch("https://capstoneapibackend.herokuapp.com/" + id, {
+      fetch("https://capstoneapibackend.herokuapp.com/users/" + id, {
           method: "DELETE",
           headers: {
+            "Content-type": "application/json; charset=UTF-8",
             "x-auth-token": context.state.token,
           },
         })
@@ -200,7 +211,7 @@ export default createStore({
         .then(() => context.dispatch("getusers"));
     },
 
-    // update user infor
+    // update user info
     updateUser: async (context, user) => {
       fetch("https://capstoneapibackend.herokuapp.com/users/" + user.id, {
           method: "PUT",
@@ -216,24 +227,10 @@ export default createStore({
           context.dispatch("getusers");
         });
     },
-
-    // retrieves all users
-    getusers: async (context) => {
-      fetch("https://capstoneapibackend.herokuapp.com/users", {
-          headers: {
-            "x-auth-token": await context.state.token,
-          },
-        })
-        .then((res) => res.json())
-        .then((data) => {
-          context.commit("setusers", data.results);
-        });
-    },
-
     // get cart
-    getCart: async (context, id) => {
-      id = context.state.user.id;
-      fetch("https://capstoneapibackend.herokuapp.com/" + id + "/cart", {
+    getCart: async (context) => {
+      const id = context.state.user.id;
+      fetch("https://capstoneapibackend.herokuapp.com/users/" + id + "/cart", {
           method: "GET",
           headers: {
             "Content-type": "application/json; charset=UTF-8",
@@ -246,10 +243,9 @@ export default createStore({
           context.commit("setcart", cart);
         });
     },
-
     //delete one cart item
-    removeOne: async (context, id, userid) => {
-      userid = context.state.user.id
+    removeOne: async (context, id) => {
+      const userid = context.state.user.id
       fetch("https://capstoneapibackend.herokuapp.com/users/" + userid + "/cart/" + id, {
           method: "DELETE",
           headers: {
@@ -266,10 +262,9 @@ export default createStore({
           context.dispatch("getCart")
         })
     },
-
     // delete all cart items
-    deleteCart: async (context, userid) => {
-      userid = context.state.user.id
+    deleteCart: async (context) => {
+      const userid = context.state.user.id
       fetch("https://capstoneapibackend.herokuapp.com/users/" + userid + "/cart", {
           method: "DELETE",
           headers: {
@@ -283,12 +278,12 @@ export default createStore({
           context.dispatch("getCart")
         })
     },
-
-    addToCart: async (context, id, userid) => {
+    //additemtocart
+    addToCart: async (context, id) => {
       if (context.state.user === null) {
         alert("Please login")
       } else {
-        userid = context.state.user.id;
+        const userid = context.state.user.id;
         fetch("https://capstoneapibackend.herokuapp.com/users/" + userid + "/cart", {
             method: "POST",
             body: JSON.stringify(id),

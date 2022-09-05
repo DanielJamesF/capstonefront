@@ -7,25 +7,26 @@
           class="form-control mx-auto shadow border-dark border-1 rounded-0"
           @submit.prevent="login"
         >
-          <h2>Login(:)
-          </h2>
+          <h2>Login(:)</h2>
           <div class="form-group mb-3">
             <input
               type="email"
-              class="form-control my-3 border-dark"
+              class="form-control my-3"
               placeholder="enter email"
               id="email"
               v-model="email"
             />
             <input
               type="password"
-              class="form-control my-3 border-dark"
+              class="form-control my-3"
               id="password"
               placeholder="enter password"
               v-model="password"
             />
           </div>
-          <button type="submit" class="rounded border-dark border"><span>Submit</span></button>
+          <button type="submit" class="rounded border-dark border">
+            <span>Submit</span>
+          </button>
         </form>
         <p>
           oh wait i dont have an account maybe i should
@@ -57,7 +58,6 @@ export default {
       });
     },
   },
-
   computed: {
     user() {
       return this.$store.state.user;
@@ -77,7 +77,10 @@ export default {
 form {
   width: fit-content;
 }
-button:hover{
-    background-color: rgb(151, 149, 149);
+button:hover {
+  background-color: rgb(151, 149, 149);
+}
+input:hover{
+    border: solid 1px black;
 }
 </style>
