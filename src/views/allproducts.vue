@@ -1,5 +1,5 @@
 <template>
-  <section id="products" class="p-3">
+  <section id="products">
     <div class="container-fluid">
       <div id="bars" class="row p-3 mx-auto">
         <div v-if="user">
@@ -29,8 +29,8 @@
               <div
                 v-for="product in products"
                 :key="product"
-                class="card p-3 mx-auto my-3 border-dark rounded-0 shadow"
-                style="width: 18rem; height: fit-content"
+                class="card p-3 mx-auto my-2 border-dark rounded-0 shadow"
+                style="width: 13rem; height: fit-content"
               >
                 <div class="my-auto">
                   <router-link
@@ -109,6 +109,7 @@ export default {
 <style scoped>
 #products {
   min-height: 100vh;
+  padding-top: 80px;
   background-color: rgb(142, 142, 142);
 }
 .card-img-top {

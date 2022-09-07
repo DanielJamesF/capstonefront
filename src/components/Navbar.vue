@@ -39,8 +39,8 @@
         aria-label="Close"
       ></button>
     </div>
-    <div class="offcanvas-body">
-      <nav class="navbar sticky-top d-flex align-content-center flex-column">
+    <div class="offcanvas-body d-flex justify-content-center">
+      <nav class="navbar sticky-top d-flex align-content-center">
         <div class="container-fluid">
           <div id="navbarNav">
             <div class="navbar-nav">

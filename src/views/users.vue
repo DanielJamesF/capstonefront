@@ -43,7 +43,6 @@
       <createModal />
     </div>
   </section>
-
   <div id="else" v-else class="text-center d-flex flex-column">
     <h1>Unauthorized access</h1>
     <p>only admins are allowed to view this page</p>

@@ -28,9 +28,32 @@ export default createStore({
       state.user = user;
     },
     setcart: (state, cart) => {
-      let newCart = JSON.parse(cart);
-      state.cart = newCart;
+      if (cart !== null) {
+        let newCart = JSON.parse(cart);
+        state.cart = newCart;
+      } else {
+        state.cart = cart;
+      }
+      console.log(cart)
     },
+        // // get cart
+        // getCart: async (context) => {
+        //   const id = context.state.user.id;
+        //   fetch("https://capstoneapibackend.herokuapp.com/users/" + id + "/cart", {
+        //       method: "GET",
+        //       headers: {
+        //         "x-auth-token": context.state.token,
+        //       },
+        //     })
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //       console.log(data)
+        //       if (data !== null) {
+        //         let cart = JSON.stringify(data)
+        //         context.commit("setcart", cart);
+        //       }
+        //     });
+        // },
     setusers: (state, users) => {
       state.users = users;
     },
@@ -210,7 +233,6 @@ export default createStore({
         .then((res) => res.json())
         .then(() => context.dispatch("getusers"));
     },
-
     // update user info
     updateUser: async (context, user) => {
       fetch("https://capstoneapibackend.herokuapp.com/users/" + user.id, {
@@ -233,14 +255,16 @@ export default createStore({
       fetch("https://capstoneapibackend.herokuapp.com/users/" + id + "/cart", {
           method: "GET",
           headers: {
-            "Content-type": "application/json; charset=UTF-8",
             "x-auth-token": context.state.token,
           },
         })
         .then((res) => res.json())
         .then((data) => {
-          let cart = JSON.stringify(data);
-          context.commit("setcart", cart);
+          console.log(data)
+          if (data !== null) {
+            let cart = JSON.stringify(data)
+            context.commit("setcart", cart);
+          }
         });
     },
     //delete one cart item
@@ -275,7 +299,8 @@ export default createStore({
         .then((res) => res.json())
         .then((data) => {
           alert(data.msg)
-          context.dispatch("getCart")
+          // context.dispatch("getCart")
+          context.commit("setcart", cart, null);
         })
     },
     //additemtocart

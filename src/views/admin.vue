@@ -1,5 +1,5 @@
 <template>
-  <section id="admin" class="p-5">
+  <section id="admin">
     <div v-if="admin">
       <div v-if="products">
         <div class="container text-center">
@@ -90,6 +90,8 @@ export default {
 <style scoped>
 #admin {
   min-height: 100vh;
+  padding-top: 80px;
+  background-color: rgb(142, 142, 142);
 }
 #else {
   height: 100vh;

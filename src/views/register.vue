@@ -20,7 +20,7 @@
           <input
             id="name"
             v-model="firstname"
-            class="form-control border-dark"
+            class="form-control"
             type="text"
             placeholder="Enter Name"
             required
@@ -29,7 +29,7 @@
           <input
             id="lastname"
             v-model="lastname"
-            class="form-control border-dark"
+            class="form-control"
             type="text"
             placeholder="Enter Lastname"
             required
@@ -38,7 +38,7 @@
           <input
             id="email"
             v-model="email"
-            class="form-control border-dark"
+            class="form-control"
             type="email"
             placeholder="enter email"
             required
@@ -47,7 +47,7 @@
           <input
             id="password"
             v-model="password"
-            class="form-control border-dark"
+            class="form-control"
             type="password"
             placeholder="Choose password"
             required
@@ -112,5 +112,8 @@ label {
 }
 button:hover {
   background-color: rgb(151, 149, 149);
+}
+input:hover{
+  border: solid 1px black;
 }
 </style>
