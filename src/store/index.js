@@ -36,24 +36,6 @@ export default createStore({
       }
       console.log(cart)
     },
-        // // get cart
-        // getCart: async (context) => {
-        //   const id = context.state.user.id;
-        //   fetch("https://capstoneapibackend.herokuapp.com/users/" + id + "/cart", {
-        //       method: "GET",
-        //       headers: {
-        //         "x-auth-token": context.state.token,
-        //       },
-        //     })
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //       console.log(data)
-        //       if (data !== null) {
-        //         let cart = JSON.stringify(data)
-        //         context.commit("setcart", cart);
-        //       }
-        //     });
-        // },
     setusers: (state, users) => {
       state.users = users;
     },
@@ -208,19 +190,19 @@ export default createStore({
             alert(data.msg)
           }
         });
-      },
-      // retrieves all users
-      getusers: async (context) => {
-        fetch("https://capstoneapibackend.herokuapp.com/users", {
-            headers: {
-              "x-auth-token": await context.state.token,
-            },
-          })
-          .then((res) => res.json())
-          .then((data) => {
-            context.commit("setusers", data.results);
-          });
-      },
+    },
+    // retrieves all users
+    getusers: async (context) => {
+      fetch("https://capstoneapibackend.herokuapp.com/users", {
+          headers: {
+            "x-auth-token": await context.state.token,
+          },
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          context.commit("setusers", data.results);
+        });
+    },
     // Deletes user from db
     deleteuser: async (context, id) => {
       fetch("https://capstoneapibackend.herokuapp.com/users/" + id, {
@@ -255,6 +237,7 @@ export default createStore({
       fetch("https://capstoneapibackend.herokuapp.com/users/" + id + "/cart", {
           method: "GET",
           headers: {
+            "Content-type": "application/json; charset=UTF-8",
             "x-auth-token": context.state.token,
           },
         })
@@ -264,9 +247,16 @@ export default createStore({
           if (data !== null) {
             let cart = JSON.stringify(data)
             context.commit("setcart", cart);
+          } else {
+            getCart.push = ("setcart")
           }
         });
     },
+    // getAllPosts().then(response => {
+    //   console.log(response);
+    // }).catch(e => {
+    //   console.log(e);
+    // });
     //delete one cart item
     removeOne: async (context, id) => {
       const userid = context.state.user.id
@@ -299,8 +289,9 @@ export default createStore({
         .then((res) => res.json())
         .then((data) => {
           alert(data.msg)
-          // context.dispatch("getCart")
-          context.commit("setcart", cart, null);
+          context.state.cart = null
+          context.dispatch("getCart")
+          context.commit("setcart", cart);
         })
     },
     //additemtocart

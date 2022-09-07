@@ -17,7 +17,7 @@
           >
             <p>{{ product.title }}</p>
             <img :src="product.image" alt="" />
-            <h2>{{ product.id }}</h2>
+            <p>item number: {{ product.id }}</p>
             <button
               class="btn border-dark"
               @click="$store.dispatch('removeOne', product.id)"
@@ -32,7 +32,7 @@
               <div class="card m-3 p-3 border-dark rounded-0 shadow">
                 <h2 id="total1"><span>Cart Summary</span></h2>
                 <div v-for="item in cart" :key="item" :item="item" class="row">
-                  <div class="col-md-7">
+                  <div class="col-md-6">
                     <p>
                       <span class="">{{ item.title }}</span>
                     </p>

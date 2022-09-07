@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed-top d-flex justify-content-between p-2">
+  <div class="fixed-top d-flex justify-content-between p-3">
     <div id="div" class="nav-item">
       <router-link :to="{ name: 'home' }">
         <img
@@ -39,15 +39,14 @@
         aria-label="Close"
       ></button>
     </div>
-    <div class="offcanvas-body d-flex justify-content-center">
-      <nav class="navbar sticky-top d-flex align-content-center">
-        <div class="container-fluid">
+    <div class="offcanvas-body">
+      <nav class="navbar">
           <div id="navbarNav">
             <div class="navbar-nav">
-              <div v-if="user" class="d-flex flex-column">
+              <div v-if="user">
                 <button
                   type="button"
-                  class="btn d-flex justify-content-center"
+                  class="btn"
                   data-bs-toggle="modal"
                   :data-bs-target="'#update' + user.id"
                 >
@@ -61,7 +60,7 @@
                 </router-link>
                 <editUserModal :user="user" />
               </div>
-              <div class="d-flex flex-column" v-if="admin">
+              <div v-if="admin">
                 <router-link to="/admin">Admin </router-link>
                 <router-link to="/users">Users </router-link>
               </div>
@@ -70,13 +69,12 @@
                   <button class="btn" @click="logout">Logout</button>
                 </router-link>
               </div>
-              <div v-else class="d-flex flex-column">
+              <div v-else>
                 <router-link to="/login">Login </router-link>
                 <router-link to="/register">Register </router-link>
               </div>
             </div>
           </div>
-        </div>
       </nav>
     </div>
   </div>
@@ -131,6 +129,10 @@ export default {
   border-bottom: solid 1px black;
   background-color: rgb(30, 30, 98);
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 img {
   right: 0;

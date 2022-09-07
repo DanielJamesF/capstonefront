@@ -57,17 +57,6 @@
                   placeholder="Enter Email"
                 />
               </div>
-              <div class="mb-3">
-                <label for="updatepassord" class="form-label">Password: </label>
-                <input
-                  class="form-control"
-                  type="text"
-                  name="updatePassword"
-                  id="updatePassword"
-                  v-model="user.password"
-                  placeholder="Enter Password"
-                />
-              </div>
             </div>
           </div>
           <div class="modal-footer">
