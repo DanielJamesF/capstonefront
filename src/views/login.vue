@@ -4,7 +4,7 @@
       <div class="row d-flex justify-content-center align-content-center">
         <form
           id="login"
-          class="form-control mx-auto shadow border-dark border-1 rounded-0"
+          class="form-control mx-auto shadow rounded-0 bg-transparent"
           @submit.prevent="login"
         >
           <h2>Login(:)</h2>
@@ -77,10 +77,15 @@ export default {
 form {
   width: fit-content;
 }
+form:hover{
+  background-color: transparent;
+  border: none;
+}
 button:hover {
   background-color: rgb(151, 149, 149);
 }
 input:hover{
     border: solid 1px black;
+    border-radius: 0;
 }
 </style>

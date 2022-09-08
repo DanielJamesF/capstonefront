@@ -24,33 +24,38 @@
             </select>
           </div>
           <div id="products" v-if="products">
-            <div id="row" class="row mx-auto">
-              <h2>All Products</h2>
-              <div
-                v-for="product in products"
-                :key="product"
-                class="card p-3 mx-auto my-2 border-dark rounded-0 shadow"
-                style="width: 13rem; height: fit-content"
-              >
-                <div class="my-auto">
-                  <router-link
-                    :to="{ name: 'product', params: { id: product.id } }"
-                  >
-                    <img :src="product.image" class="card-img-top" alt="" />
-                  </router-link>
-                  <p class="card-text" id="name">
-                    <b>{{ product.title }}</b>
-                  </p>
-                  <p class="card-text" id="name">
-                    Price: R{{ product.price }}.00
-                  </p>
+            <h2>All Products</h2>
+            <div v-if="products.length > 0">
+              <div id="row" class="row mx-auto">
+                <div
+                  v-for="product in products"
+                  :key="product"
+                  class="card p-3 mx-auto my-2 border-dark rounded-0 shadow"
+                  style="width: 13rem; height: fit-content"
+                >
+                  <div class="my-auto">
+                    <router-link
+                      :to="{ name: 'product', params: { id: product.id } }"
+                    >
+                      <img :src="product.image" class="card-img-top" alt="" />
+                    </router-link>
+                    <p class="card-text" id="name">
+                      <b>{{ product.title }}</b>
+                    </p>
+                    <p class="card-text" id="name">
+                      Price: R{{ product.price }}.00
+                    </p>
+                  </div>
                 </div>
               </div>
+            </div>
+            <div v-else>
+              <h2>No results for serch</h2>
             </div>
           </div>
         </div>
         <div v-else>
-          <div id="loading" onload="preload()">loading</div>
+          <h2>loading products</h2>
         </div>
       </div>
     </div>
@@ -58,12 +63,6 @@
 </template>
 
 <script>
-var loader = document.getElementById("loading");
-window.addEventListener("load", function () {
-  setTimeout(function () {
-    loader.style.display = "none";
-  }, 5000);
-});
 export default {
   data() {
     return {
@@ -80,9 +79,13 @@ export default {
           return a.price - b.price;
         });
       } else {
-        this.$store.state.products.sort((a, b) => {
-          return b.price - a.price;
-        });
+        if (up === "desc") {
+          this.$store.state.products.sort((a, b) => {
+            return b.price - a.price;
+          });
+        } else {
+          if (up === "All") this.$store.dispatch("getProducts");
+        }
       }
     },
   },

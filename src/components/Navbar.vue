@@ -22,7 +22,7 @@
     </button>
   </div>
   <div
-    class="offcanvas offcanvas-start"
+    class="offcanvas offcanvas-end"
     tabindex="-1"
     id="offcanvasExample"
     aria-labelledby="offcanvasExampleLabel"
@@ -43,7 +43,7 @@
       <nav class="navbar">
           <div id="navbarNav">
             <div class="navbar-nav">
-              <div v-if="user">
+              <div v-if="user" class="d-flex flex-column">
                 <button
                   type="button"
                   class="btn"
@@ -60,16 +60,16 @@
                 </router-link>
                 <editUserModal :user="user" />
               </div>
-              <div v-if="admin">
+              <div v-if="admin" class="d-flex flex-column">
                 <router-link to="/admin">Admin </router-link>
                 <router-link to="/users">Users </router-link>
               </div>
-              <div v-if="user">
+              <div v-if="user" class="d-flex flex-column">
                 <router-link :to="{ name: 'home' }">
                   <button class="btn" @click="logout">Logout</button>
                 </router-link>
               </div>
-              <div v-else>
+              <div v-else class="d-flex flex-column">
                 <router-link to="/login">Login </router-link>
                 <router-link to="/register">Register </router-link>
               </div>
@@ -132,7 +132,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 img {
   right: 0;

@@ -11,7 +11,7 @@
     <div class="row">
       <form
         id="register"
-        class="form-control mx-auto border-dark rounded-0 shadow"
+        class="form-control mx-auto rounded-0 shadow bg-transparent"
         @submit.prevent="register"
       >
         <h2>Register(:)</h2>
@@ -106,6 +106,10 @@ export default {
 form {
   width: fit-content;
 }
+form:hover{
+  background-color: transparent;
+  border: none;
+}
 label {
   float: left;
   padding-left: 10px;
@@ -115,5 +119,6 @@ button:hover {
 }
 input:hover{
   border: solid 1px black;
+  border-radius: 0;
 }
 </style>

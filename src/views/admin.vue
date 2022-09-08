@@ -4,7 +4,7 @@
       <div v-if="products">
         <div class="container text-center">
           <h2>User: {{ user.firstname }}</h2>
-          <table class="table">
+          <table class="table table-stripe">
             <thead>
               <tr>
                 <th scope="col">id</th>
@@ -92,14 +92,24 @@ export default {
   min-height: 100vh;
   padding-top: 80px;
   background-color: rgb(142, 142, 142);
+  color: white;
+}
+th{
+  color: white;
+}
+i{
+  color: white;
+}
+i:hover{
+  color: black;
+}
+td{
+  color: white;
+}
+td:hover{
+  color: black;
 }
 #else {
   height: 100vh;
-}
-th {
-  color: black;
-}
-i {
-  color: black;
 }
 </style>

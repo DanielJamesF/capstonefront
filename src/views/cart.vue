@@ -1,12 +1,12 @@
 <template>
   <section id="cart">
     <div v-if="cart" class="p-3">
-      <div class="row mx-auto">
         <div>
           <button class="btn" @click="removeAll">
             <span> Remove all</span>
           </button>
         </div>
+      <div class="row mx-auto">
         <div class="col-md-6">
           <div
             v-for="product in cart"
@@ -29,24 +29,34 @@
         <div class="col-md-4">
           <div class="row">
             <div class="col">
-              <div class="card m-3 p-3 border-dark rounded-0 shadow">
-                <h2 id="total1"><span>Cart Summary</span></h2>
-                <div v-for="item in cart" :key="item" :item="item" class="row">
-                  <div class="col-md-6">
-                    <p>
-                      <span class="">{{ item.title }}</span>
-                    </p>
+              <div class="card p-3 border-dark rounded-0 shadow float-end">
+                <div>
+                  <h2 id="total1"><span>Cart Summary</span></h2>
+                  <div
+                    v-for="item in cart"
+                    :key="item"
+                    :item="item"
+                    class="row"
+                  >
+                    <div class="col-md-6">
+                      <p>
+                        <span class="">{{ item.title }}</span>
+                      </p>
+                    </div>
+                    <div class="col-md-5">
+                      <p>
+                        <span>R{{ item.price }}</span>
+                      </p>
+                    </div>
                   </div>
-                  <div class="col-md-5">
-                    <p>
-                      <span>R{{ item.price }}</span>
-                    </p>
-                  </div>
+                  <p id="total">
+                    <span class="fw-bolder">Total:</span>(
+                    <span>{{ num }} item</span> ) <span>R{{ total }}.00</span>
+                  </p>
                 </div>
-                <p id="total">
-                  <span class="fw-bolder">Total:</span>(
-                  <span>{{ num }} item</span> ) <span>R{{ total }}.00</span>
-                </p>
+                <div>
+                  <button type="button" class="btn">Checkout</button>
+                </div>
               </div>
             </div>
           </div>
@@ -89,6 +99,7 @@ export default {
   methods: {
     removeAll() {
       this.$store.dispatch("deleteCart");
+      this.cart = null;
     },
   },
 };

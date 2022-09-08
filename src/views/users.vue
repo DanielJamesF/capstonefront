@@ -46,8 +46,12 @@
   <div id="else" v-else class="text-center d-flex flex-column">
     <h1>Unauthorized access</h1>
     <p>only admins are allowed to view this page</p>
-    <router-link :to="{name: 'home'}" class="btn border border-dark border-1 p-1 rounded-0 nav-link">
-    <span>Return Home</span></router-link>
+    <router-link
+      :to="{ name: 'home' }"
+      class="btn border border-dark border-1 p-1 rounded-0 nav-link"
+    >
+      <span>Return Home</span></router-link
+    >
   </div>
 </template>
 
@@ -75,22 +79,30 @@ export default {
 </script>
 
 <style scoped>
-.container-fluid {
+#usersSection {
   min-height: 100vh;
+  padding-top: 80px;
+  background-color: rgb(142, 142, 142);
 }
 th {
-  color: black;
+  color: white;
 }
 i {
+  color: white;
+}
+i:hover{
+  color: black;
+}
+td{
+  color: white;
+}
+td:hover{
   color: black;
 }
 #else {
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.btn:hover{
-    background-color: lightslategray;
+.btn:hover {
+  background-color: lightslategray;
 }
 </style>

@@ -1,11 +1,19 @@
 <template>
-  <section id="single" class="p-4">
+  <section id="single">
     <div class="container" v-if="product">
       <div class="row g-2 mx-auto">
+        <div>
+          <router-link to="/products">
+            <button v-bind:onclick="back" class="border-dark rounded">
+              return to all products
+            </button>
+          </router-link>
+        </div>
         <div class="col-md-6 d-flex align-items-center">
           <img
             :src="product[0].image"
             class="mx-auto img-fluid shadow"
+            style="height: 20rem; width: fit-content"
             alt="image failed to load"
           />
         </div>
@@ -16,13 +24,8 @@
           <p class="shadow p-2">{{ product[0].description }}</p>
           <h2 class="fw-bolder">Price: R{{ product[0].price }}.00</h2>
         </div>
-        <button @click="add" class="border-dark rounded">Add to cart</button>
-        <div class="">
-          <router-link to="/products">
-            <button v-bind:onclick="back" class="border-dark rounded">
-              return to all products
-            </button>
-          </router-link>
+        <div>
+          <button @click="add" class="border-dark rounded">Add to cart</button>
         </div>
       </div>
     </div>
@@ -63,6 +66,7 @@ export default {
 <style scoped>
 #single {
   min-height: 60vh;
+  padding: 80px;
   background-color: rgb(142, 142, 142);
 }
 button:hover {

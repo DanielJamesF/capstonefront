@@ -4,6 +4,7 @@ import {
 import {
   router
 } from "@/router/index.js";
+import Swal from "sweetalert2";
 
 export default createStore({
   state: {
@@ -79,7 +80,11 @@ export default createStore({
         })
         .then((res) => res.json())
         .then((data) => {
-          alert(data.msg);
+          Swal.fire({
+            icon:"success",
+            title:"Success",
+            text: data.msg
+          });
           context.dispatch("getProducts");
         });
     },
@@ -95,7 +100,11 @@ export default createStore({
         })
         .then((res) => res.json())
         .then((data) => {
-          alert(data.msg);
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: data.msg
+          })
           context.dispatch("getProducts");
         });
     },
@@ -136,7 +145,11 @@ export default createStore({
         .then((response) => response.json())
         .then((data) => {
           if (data.msg === "Registration Successful") {
-            alert(data.msg);
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: data.msg
+            })
             let user = data.user;
             let token = data.token;
             context.commit("setuser", user);
@@ -146,7 +159,11 @@ export default createStore({
               name: "products",
             });
           } else {
-            alert(data.msg);
+            Swal.fire({
+              icon: "error",
+              title: "Error",
+              text: data.mssg
+            })
             document.getElementById("register").reset();
           }
         });
@@ -171,7 +188,11 @@ export default createStore({
         .then((response) => response.json())
         .then((data) => {
           if (data.msg === "Login Successful") {
-            alert(data.msg);
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: data.msg
+            })
             let user = data.user;
             let token = data.token;
             let cart = data.user.cart;
@@ -187,7 +208,11 @@ export default createStore({
               name: "products"
             })
           } else {
-            alert(data.msg)
+            Swal.fire({
+              icon: "error",
+              title: "Error",
+              text: data.msg
+            })
           }
         });
     },
@@ -227,7 +252,11 @@ export default createStore({
         })
         .then((res) => res.json())
         .then((data) => {
-          alert(data.msg);
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: data.msg
+          })
           context.dispatch("getusers");
         });
     },
@@ -252,11 +281,6 @@ export default createStore({
           }
         });
     },
-    // getAllPosts().then(response => {
-    //   console.log(response);
-    // }).catch(e => {
-    //   console.log(e);
-    // });
     //delete one cart item
     removeOne: async (context, id) => {
       const userid = context.state.user.id
@@ -271,7 +295,11 @@ export default createStore({
         .then((data) => {
           console.log(data)
           console.log(id)
-          alert(data.msg)
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: data.msg
+          })
           context.state.cart = null
           context.dispatch("getCart")
         })
@@ -288,16 +316,32 @@ export default createStore({
         })
         .then((res) => res.json())
         .then((data) => {
-          alert(data.msg)
-          context.state.cart = null
-          context.dispatch("getCart")
-          context.commit("setcart", cart);
+          if(data.result == "incorrect user id"){
+            Swal.fire({
+              icon: "info",
+              title: "Info",
+              text: data.result
+            });
+          } else {
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: "Cart cleared"
+            })
+            context.dispatch("getCart")
+            context.state.cart = null
+            // context.commit("setcart", cart);
+          }
         })
     },
     //additemtocart
     addToCart: async (context, id) => {
       if (context.state.user === null) {
-        alert("Please login")
+        Swal.fire({
+          icon: "info",
+          title: "Info",
+          text: "Please login"
+        })
       } else {
         const userid = context.state.user.id;
         fetch("https://capstoneapibackend.herokuapp.com/users/" + userid + "/cart", {
@@ -312,7 +356,11 @@ export default createStore({
           .then((data) => {
             console.log(data);
             console.log(id);
-            alert(data.msg);
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: data.msg
+            })
             context.dispatch("getCart");
           });
       }
