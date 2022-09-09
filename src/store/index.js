@@ -4,7 +4,6 @@ import {
 import {
   router
 } from "@/router/index.js";
-import Swal from "sweetalert2";
 
 export default createStore({
   state: {
@@ -81,8 +80,8 @@ export default createStore({
         .then((res) => res.json())
         .then((data) => {
           Swal.fire({
-            icon:"success",
-            title:"Success",
+            icon: "success",
+            title: "Success",
             text: data.msg
           });
           context.dispatch("getProducts");
@@ -316,7 +315,7 @@ export default createStore({
         })
         .then((res) => res.json())
         .then((data) => {
-          if(data.result == "incorrect user id"){
+          if (data.result == "incorrect user id") {
             Swal.fire({
               icon: "info",
               title: "Info",
@@ -326,7 +325,7 @@ export default createStore({
             Swal.fire({
               icon: "success",
               title: "Success",
-              text: "Cart cleared"
+              text: "You have been successfully checked out"
             })
             context.dispatch("getCart")
             context.state.cart = null

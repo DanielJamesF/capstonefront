@@ -9,54 +9,56 @@
     "
   >
     <div class="row">
-      <form
-        id="register"
-        class="form-control mx-auto rounded-0 shadow bg-transparent"
-        @submit.prevent="register"
-      >
-        <h2>Register(:)</h2>
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input
-            id="name"
-            v-model="firstname"
-            class="form-control"
-            type="text"
-            placeholder="Enter Name"
-            required
-          />
-          <label for="lastname">Surname:</label>
-          <input
-            id="lastname"
-            v-model="lastname"
-            class="form-control"
-            type="text"
-            placeholder="Enter Lastname"
-            required
-          />
-          <label for="email">Email:</label>
-          <input
-            id="email"
-            v-model="email"
-            class="form-control"
-            type="email"
-            placeholder="enter email"
-            required
-          />
-          <label for="password">Password:</label>
-          <input
-            id="password"
-            v-model="password"
-            class="form-control"
-            type="password"
-            placeholder="Choose password"
-            required
-          />
-        </div>
-        <button type="submit" class="border-dark border-1 rounded my-1">
-          Register
-        </button>
-      </form>
+      <h2>Register</h2>
+      <div class="col">
+        <form
+          id="register"
+          class="form-control mx-auto rounded-0 shadow bg-transparent"
+          @submit.prevent="register"
+        >
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input
+              id="name"
+              v-model="firstname"
+              class="form-control"
+              type="text"
+              placeholder="Enter Name"
+              required
+            />
+            <label for="lastname">Surname:</label>
+            <input
+              id="lastname"
+              v-model="lastname"
+              class="form-control"
+              type="text"
+              placeholder="Enter Lastname"
+              required
+            />
+            <label for="email">Email:</label>
+            <input
+              id="email"
+              v-model="email"
+              class="form-control"
+              type="email"
+              placeholder="enter email"
+              required
+            />
+            <label for="password">Password:</label>
+            <input
+              id="password"
+              v-model="password"
+              class="form-control"
+              type="password"
+              placeholder="Choose password"
+              required
+            />
+          </div>
+          <button type="submit" class="border-dark border-1 rounded my-1">
+            Register
+          </button>
+        </form>
+      </div>
       <p>
         oh wait i've been here before maybe i should
         <router-link :to="{ name: 'login' }"
@@ -103,10 +105,7 @@ export default {
   min-height: 100vh;
   background-color: rgb(142, 142, 142);
 }
-form {
-  width: fit-content;
-}
-form:hover{
+form:hover {
   background-color: transparent;
   border: none;
 }
@@ -117,8 +116,11 @@ label {
 button:hover {
   background-color: rgb(151, 149, 149);
 }
-input:hover{
+input:hover {
   border: solid 1px black;
   border-radius: 0;
+}
+h2 {
+  font-size: 80px;
 }
 </style>

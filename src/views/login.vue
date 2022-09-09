@@ -1,33 +1,35 @@
 <template>
   <section id="loginPage">
-    <div class="container-fluid">
-      <div class="row d-flex justify-content-center align-content-center">
-        <form
-          id="login"
-          class="form-control mx-auto shadow rounded-0 bg-transparent"
-          @submit.prevent="login"
-        >
-          <h2>Login(:)</h2>
-          <div class="form-group mb-3">
-            <input
-              type="email"
-              class="form-control my-3"
-              placeholder="enter email"
-              id="email"
-              v-model="email"
-            />
-            <input
-              type="password"
-              class="form-control my-3"
-              id="password"
-              placeholder="enter password"
-              v-model="password"
-            />
-          </div>
-          <button type="submit" class="rounded border-dark border">
-            <span>Submit</span>
-          </button>
-        </form>
+    <div class="container-fluid d-flex justify-content-center align-content-center">
+      <div class="row">
+        <h2>Login</h2>
+        <div class="col">
+          <form
+            id="login"
+            class="form-control mx-auto shadow rounded-0 bg-transparent"
+            @submit.prevent="login"
+          >
+            <div class="form-group mb-3">
+              <input
+                type="email"
+                class="form-control my-3"
+                placeholder="enter email"
+                id="email"
+                v-model="email"
+              />
+              <input
+                type="password"
+                class="form-control my-3"
+                id="password"
+                placeholder="enter password"
+                v-model="password"
+              />
+            </div>
+            <button type="submit" class="rounded border-dark border">
+              <span>Submit</span>
+            </button>
+          </form>
+        </div>
         <p>
           oh wait i dont have an account maybe i should
           <router-link :to="{ name: 'register' }"
@@ -36,7 +38,7 @@
         </p>
       </div>
       <div v-if="user">
-        <h2>{{ user.firstname }} Login Successful</h2>
+        <h3>{{ user.firstname }} was successfuly logged in</h3>
       </div>
     </div>
   </section>
@@ -74,18 +76,18 @@ export default {
   justify-content: center;
   align-items: center;
 }
-form {
-  width: fit-content;
-}
-form:hover{
+form:hover {
   background-color: transparent;
   border: none;
 }
 button:hover {
   background-color: rgb(151, 149, 149);
 }
-input:hover{
-    border: solid 1px black;
-    border-radius: 0;
+input:hover {
+  border: solid 1px black;
+  border-radius: 0;
+}
+h2 {
+  font-size: 80px;
 }
 </style>

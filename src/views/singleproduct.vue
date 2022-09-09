@@ -29,9 +29,9 @@
         </div>
       </div>
     </div>
-    <div v-else>
-      <h2>Loading ...</h2>
-    </div>
+      <div v-else class="loader">
+        <h1>LOADING<span class="bullets">.</span></h1>
+      </div>
   </section>
 </template>
 
@@ -72,4 +72,43 @@ export default {
 button:hover {
   background-color: rgb(169, 169, 169);
 }
+
+.loader {
+  background-color: rgb(142, 142, 142);
+  text-align:center;
+  height: 100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.loader h1 {
+  color:white;
+  font-family: 'arial';
+  font-weight: 800;
+  font-size: 4em;
+}
+.bullets{
+  animation: dots 2s steps(3, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% {
+    color: rgba(0,0,0,0);
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);}
+  40% {
+    color: white;
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);}
+  60% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 rgba(0,0,0,0);}
+  80%, 100% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 white;}}
+
 </style>

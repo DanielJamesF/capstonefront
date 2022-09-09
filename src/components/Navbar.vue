@@ -18,7 +18,7 @@
       data-bs-target="#offcanvasExample"
       aria-controls="offcanvasExample"
     >
-      <i class="bi bi-arrow-bar-right"></i>
+      <i class="bi bi-arrow-bar-left"></i>
     </button>
   </div>
   <div
@@ -50,19 +50,19 @@
                   data-bs-toggle="modal"
                   :data-bs-target="'#update' + user.id"
                 >
-                  <i class="bi bi-person-circle"> User Profile</i>
+                  <i class="bi bi-person-circle" style="font-size: 40px;"></i>
                 </button>
-                <router-link to="/">Home </router-link>
-                <router-link to="/products">Products </router-link>
-                <router-link to="/contact">Contact </router-link>
+                <router-link to="/"><span id="peach">Home</span></router-link>
+                <router-link to="/products"><span id="peach">Products</span></router-link>
+                <router-link to="/contact"><span id="peach">Contact</span></router-link>
                 <router-link to="/cart">
                   <button class="btn">Cart ({{ num }})</button>
                 </router-link>
                 <editUserModal :user="user" />
               </div>
               <div v-if="admin" class="d-flex flex-column">
-                <router-link to="/admin">Admin </router-link>
-                <router-link to="/users">Users </router-link>
+                <router-link to="/admin"><span id="peach">Admin</span></router-link>
+                <router-link to="/users"><span id="peach">Users</span></router-link>
               </div>
               <div v-if="user" class="d-flex flex-column">
                 <router-link :to="{ name: 'home' }">
@@ -70,8 +70,8 @@
                 </router-link>
               </div>
               <div v-else class="d-flex flex-column">
-                <router-link to="/login">Login </router-link>
-                <router-link to="/register">Register </router-link>
+                <router-link to="/login"><span id="peach">Login</span></router-link>
+                <router-link to="/register"><span id="peach">Register</span></router-link>
               </div>
             </div>
           </div>
@@ -127,7 +127,6 @@ export default {
 <style scoped>
 .navbar {
   border-bottom: solid 1px black;
-  background-color: rgb(30, 30, 98);
   height: 100%;
   display: flex;
   justify-content: center;
@@ -142,13 +141,13 @@ img {
   padding: 3px;
 }
 nav a {
-  font-size: 20px;
-  color: black;
+  font-size: 30px;
+  color: lightsteelblue;
   text-decoration: none;
-  padding: 4px;
+  padding: 5px;
 }
 nav a.router-link-exact-active {
-  color: lightsteelblue;
+  color: black;
 }
 nav a:hover {
   color: lightslategrey;
@@ -173,5 +172,9 @@ button {
 }
 #store {
   color: rgb(147, 147, 79);
+}
+#peach:hover{
+  padding: 10px;
+  border: solid 1px black;
 }
 </style>

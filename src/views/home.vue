@@ -2,7 +2,7 @@
   <section id="home">
     <div class="row">
       <div class="col shadow">
-        <h4><span class="text-decoration-underline">Welcome to</span> :</h4>
+        <h4><span>Welcome to:</span></h4>
         <h1>
           <span id="dot">dot</span><span id="pet">Pet</span
           ><span id="store">Store</span>
@@ -21,7 +21,7 @@ export default {};
   overflow-x: hidden;
   height: 100vh;
   background-image: url("https://i.postimg.cc/W4G8JSzp/puppy.jpg");
-  background-color: rgb(73, 73, 137);
+  background-color: rgb(81, 81, 137);
   background-blend-mode: multiply;
   background-repeat: no-repeat;
   background-position: center;
@@ -44,5 +44,8 @@ export default {};
 }
 #store {
   color: rgb(147, 147, 79);
+}
+span{
+  font-size: 80px;
 }
 </style>

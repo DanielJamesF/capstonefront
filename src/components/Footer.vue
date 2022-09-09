@@ -5,10 +5,9 @@
       <div id="links" class="col-4 d-flex flex-column align-items-start">
         <h1>About us</h1>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae sequi
-          eveniet autem, cumque ducimus molestias, repudiandae aut quasi totam,
-          vel sunt? Accusamus distinctio placeat laborum veritatis! Odio
-          expedita necessitatibus quibusdam?
+          We are an organisation that specialise in finding and collecting
+          breeds of dogs and finding homes for them via our consumers in
+          partnership with Cape of Good Hope SPCA.
         </p>
       </div>
       <div id="links3" class="col-4 d-flex flex-column">
@@ -16,7 +15,6 @@
         <router-link to="/">Home</router-link>
         <router-link to="/login">Login</router-link>
         <router-link to="/register">Register</router-link>
-        <router-link to="/about">About</router-link>
         <router-link to="/contact">Contact us</router-link>
       </div>
       <div id="links2" class="col-4 d-flex flex-column">
@@ -66,7 +64,7 @@ h1,
 p {
   color: rgb(142, 142, 142);
 }
-li{
+li {
   list-style: none;
 }
 </style>

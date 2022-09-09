@@ -3,8 +3,8 @@
     <div class="container-fluid">
       <div id="bars" class="row p-3 mx-auto">
         <div v-if="user">
-          <h2 id="welcome">Welcome {{ user.firstname }}</h2>
-          <div class="col-md-6 mx-auto">
+          <h1 id="welcome">Welcome: {{ user.firstname }}</h1>
+          <div class="col-6 mx-auto">
             <input
               type="text"
               class="form-control border-dark shadow-none"
@@ -12,7 +12,7 @@
               placeholder="Search By Name ..."
             />
           </div>
-          <div class="col-md-6 mx-auto">
+          <div class="col-6 mx-auto">
             <select
               class="form-select border-dark shadow-none"
               id="price"
@@ -33,19 +33,19 @@
                   class="card p-3 mx-auto my-2 border-dark rounded-0 shadow"
                   style="width: 13rem; height: fit-content"
                 >
-                  <div class="my-auto">
-                    <router-link
-                      :to="{ name: 'product', params: { id: product.id } }"
-                    >
+                  <router-link
+                    :to="{ name: 'product', params: { id: product.id } }"
+                  >
+                    <div class="my-auto">
                       <img :src="product.image" class="card-img-top" alt="" />
-                    </router-link>
-                    <p class="card-text" id="name">
-                      <b>{{ product.title }}</b>
-                    </p>
-                    <p class="card-text" id="name">
-                      Price: R{{ product.price }}.00
-                    </p>
-                  </div>
+                      <p class="card-text" id="name">
+                        <b>{{ product.title }}</b>
+                      </p>
+                      <p class="card-text" id="name">
+                        Price: R{{ product.price }}.00
+                      </p>
+                    </div>
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -55,7 +55,9 @@
           </div>
         </div>
         <div v-else>
-          <h2>loading products</h2>
+          <h2>
+            <router-link to="/login">return to login</router-link>
+          </h2>
         </div>
       </div>
     </div>
@@ -105,6 +107,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getProducts");
+    this.$store.commit("setproduct", null);
   },
 };
 </script>
@@ -123,5 +126,12 @@ export default {
 .card:hover {
   background-color: rgba(169, 169, 169, 0.943);
   transition-delay: 150ms;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+h2{
+  font-size: 80px;
 }
 </style>

@@ -1,23 +1,18 @@
 <template>
   <section id="cart">
-    <div v-if="cart" class="p-3">
-        <div>
-          <button class="btn" @click="removeAll">
-            <span> Remove all</span>
-          </button>
-        </div>
+    <div v-if="cart">
       <div class="row mx-auto">
         <div class="col-md-6">
           <div
             v-for="product in cart"
             :key="product"
             :product="product"
-            class="card p-3 mx-auto my-2 border-dark rounded-0 shadow"
+            class="card p-2 mx-auto border-dark rounded-0 shadow"
             style="width: 13rem; height: fit-content"
           >
-            <p>{{ product.title }}</p>
-            <img :src="product.image" alt="" />
-            <p>item number: {{ product.id }}</p>
+            <h3>{{ product.title }}</h3>
+              <img :src="product.image" alt="" class="img-fluid" />
+            <p>Item number: {{ product.id }}</p>
             <button
               class="btn border-dark"
               @click="$store.dispatch('removeOne', product.id)"
@@ -29,7 +24,7 @@
         <div class="col-md-4">
           <div class="row">
             <div class="col">
-              <div class="card p-3 border-dark rounded-0 shadow float-end">
+              <div class="card p-3 border-dark rounded-0 shadow">
                 <div>
                   <h2 id="total1"><span>Cart Summary</span></h2>
                   <div
@@ -53,9 +48,11 @@
                     <span class="fw-bolder">Total:</span>(
                     <span>{{ num }} item</span> ) <span>R{{ total }}.00</span>
                   </p>
-                </div>
-                <div>
-                  <button type="button" class="btn">Checkout</button>
+                  <div>
+                    <button class="btn" @click="removeAll">
+                      <span>Checkout</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -121,6 +118,7 @@ export default {
 
 img {
   aspect-ratio: 1;
+  object-fit: cover;
 }
 
 #total1 {
