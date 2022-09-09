@@ -41,40 +41,52 @@
     </div>
     <div class="offcanvas-body">
       <nav class="navbar">
-          <div id="navbarNav">
-            <div class="navbar-nav">
-              <div v-if="user" class="d-flex flex-column">
-                <button
-                  type="button"
-                  class="btn"
-                  data-bs-toggle="modal"
-                  :data-bs-target="'#update' + user.id"
-                >
-                  <i class="bi bi-person-circle" style="font-size: 40px;"></i>
-                </button>
-                <router-link to="/"><span id="peach">Home</span></router-link>
-                <router-link to="/products"><span id="peach">Products</span></router-link>
-                <router-link to="/contact"><span id="peach">Contact</span></router-link>
-                <router-link to="/cart">
-                  <button class="btn">Cart ({{ num }})</button>
-                </router-link>
-                <editUserModal :user="user" />
-              </div>
-              <div v-if="admin" class="d-flex flex-column">
-                <router-link to="/admin"><span id="peach">Admin</span></router-link>
-                <router-link to="/users"><span id="peach">Users</span></router-link>
-              </div>
-              <div v-if="user" class="d-flex flex-column">
-                <router-link :to="{ name: 'home' }">
-                  <button class="btn" @click="logout">Logout</button>
-                </router-link>
-              </div>
-              <div v-else class="d-flex flex-column">
-                <router-link to="/login"><span id="peach">Login</span></router-link>
-                <router-link to="/register"><span id="peach">Register</span></router-link>
-              </div>
+        <div id="navbarNav">
+          <div class="navbar-nav">
+            <div v-if="user" class="d-flex flex-column">
+              <button
+                type="button"
+                class="btn"
+                data-bs-toggle="modal"
+                :data-bs-target="'#update' + user.id"
+              >
+                <i class="bi bi-person-circle" style="font-size: 40px"></i>
+              </button>
+              <router-link to="/"><span id="peach">Home</span></router-link>
+              <router-link to="/products"
+                ><span id="peach">Products</span></router-link
+              >
+              <router-link to="/contact"
+                ><span id="peach">Contact</span></router-link
+              >
+              <router-link to="/cart">
+                <button class="btn">Cart ({{ num }})</button>
+              </router-link>
+              <editUserModal :user="user" />
+            </div>
+            <div v-if="admin" class="d-flex flex-column">
+              <router-link to="/admin"
+                ><span id="peach">Admin</span></router-link
+              >
+              <router-link to="/users"
+                ><span id="peach">Users</span></router-link
+              >
+            </div>
+            <div v-if="user" class="d-flex flex-column">
+              <router-link :to="{ name: 'home' }">
+                <button class="btn" @click="logout">Logout</button>
+              </router-link>
+            </div>
+            <div v-else class="d-flex flex-column">
+              <router-link to="/login"
+                ><span id="peach">Login</span></router-link
+              >
+              <router-link to="/register"
+                ><span id="peach">Register</span></router-link
+              >
             </div>
           </div>
+        </div>
       </nav>
     </div>
   </div>
@@ -156,7 +168,7 @@ nav a:hover {
   transition: transform 0.8s ease-in-out;
 }
 .img-fluid:hover {
-  transform: rotate(360deg);
+  transform: rotate(720deg);
 }
 #button {
   color: lightskyblue;
@@ -173,7 +185,7 @@ button {
 #store {
   color: rgb(147, 147, 79);
 }
-#peach:hover{
+#peach:hover {
   padding: 10px;
   border: solid 1px black;
 }
