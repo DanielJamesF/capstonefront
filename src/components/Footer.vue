@@ -13,6 +13,7 @@
       <div id="links3" class="col-md-4 d-flex flex-column">
         <h1>Qick links</h1>
         <router-link to="/">Home</router-link>
+        <router-link to="/about">About</router-link>
         <router-link to="/login">Login</router-link>
         <router-link to="/register">Register</router-link>
         <router-link to="/contact">Contact us</router-link>

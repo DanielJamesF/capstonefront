@@ -1,7 +1,10 @@
 <template>
   <section class="about">
     <div class="container">
-
+      <h2>About</h2>
+      <p>We are an organisation that specialise in finding and collecting
+          breeds of dogs and finding homes for them via our consumers in
+          partnership with Cape of Good Hope SPCA.</p>
     </div>
   </section>
 </template>
