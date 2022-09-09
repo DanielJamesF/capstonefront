@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <br />
     <div class="row">
-      <div id="links" class="col-4 d-flex flex-column align-items-start">
+      <div id="links" class="col-md-4 d-flex flex-column">
         <h1>About us</h1>
         <p>
           We are an organisation that specialise in finding and collecting
@@ -10,14 +10,14 @@
           partnership with Cape of Good Hope SPCA.
         </p>
       </div>
-      <div id="links3" class="col-4 d-flex flex-column">
+      <div id="links3" class="col-md-4 d-flex flex-column">
         <h1>Qick links</h1>
         <router-link to="/">Home</router-link>
         <router-link to="/login">Login</router-link>
         <router-link to="/register">Register</router-link>
         <router-link to="/contact">Contact us</router-link>
       </div>
-      <div id="links2" class="col-4 d-flex flex-column">
+      <div id="links2" class="col-md-4 d-flex flex-column">
         <h1>Get in touch</h1>
         <ul>
           <li>

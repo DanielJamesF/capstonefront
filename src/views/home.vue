@@ -45,7 +45,7 @@ export default {};
 #store {
   color: rgb(147, 147, 79);
 }
-span{
-  font-size: 80px;
-}
+/* span{
+  font-size: 70px;
+} */
 </style>

@@ -1,46 +1,46 @@
 <template>
-  <div class="fixed-top d-flex justify-content-between p-3">
-    <div id="div" class="nav-item">
-      <router-link :to="{ name: 'home' }">
-        <img
-          class="img-fluid rounded-circle border border-dark border-2"
-          style="width: 4rem; height: fit-content"
-          src="https://i.postimg.cc/y8Z21msP/dotpetstore-1.png"
-          alt="logo"
-        />
-      </router-link>
-    </div>
-    <button
-      id="button"
-      class="btn"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasExample"
-      aria-controls="offcanvasExample"
-    >
-      <i class="bi bi-arrow-bar-left"></i>
-    </button>
-  </div>
-  <div
-    class="offcanvas offcanvas-end"
-    tabindex="-1"
-    id="offcanvasExample"
-    aria-labelledby="offcanvasExampleLabel"
-  >
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasExampleLabel">
-        <span id="dot">dot</span><span id="pet">Pet</span
-        ><span id="store">Store</span>
-      </h5>
+  <nav>
+    <div class="fixed-top d-flex justify-content-between">
+      <div id="div" class="nav-item">
+        <router-link :to="{ name: 'home' }">
+          <img
+            class="img-fluid rounded-circle border border-dark border-2"
+            style="width: 4rem; height: fit-content"
+            src="https://i.postimg.cc/y8Z21msP/dotpetstore-1.png"
+            alt="logo"
+          />
+        </router-link>
+      </div>
       <button
+        id="button"
+        class="btn"
         type="button"
-        class="btn-close"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
-      ></button>
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample"
+      >
+        <i class="bi bi-arrow-bar-left"></i>
+      </button>
     </div>
-    <div class="offcanvas-body">
-      <nav class="navbar">
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+          <span id="dot">dot</span><span id="pet">Pet</span
+          ><span id="store">Store</span>
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
         <div id="navbarNav">
           <div class="navbar-nav">
             <div v-if="user" class="d-flex flex-column">
@@ -87,9 +87,9 @@
             </div>
           </div>
         </div>
-      </nav>
+      </div>
     </div>
-  </div>
+  </nav>
 </template>
 
 <script>
