@@ -4,7 +4,7 @@
       <div id="bars" class="row p-3 mx-auto">
         <div v-if="user">
           <h1 id="welcome">Welcome: {{ user.firstname }}</h1>
-          <div class="col-6 mx-auto">
+          <div class="col-md-6 mx-auto">
             <input
               type="text"
               class="form-control border-dark shadow-none"
@@ -12,7 +12,7 @@
               placeholder="Search By Name ..."
             />
           </div>
-          <div class="col-6 mx-auto">
+          <div class="col-md-6 mx-auto">
             <select
               class="form-select border-dark shadow-none"
               id="price"
@@ -132,6 +132,6 @@ a{
   color: black;
 }
 h2{
-  font-size: 80px;
+  font-size: 50px;
 }
 </style>

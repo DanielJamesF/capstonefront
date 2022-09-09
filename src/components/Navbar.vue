@@ -52,23 +52,22 @@
               >
                 <i class="bi bi-person-circle" style="font-size: 40px"></i>
               </button>
-              <router-link to="/"><span id="peach">Home</span></router-link>
-              <router-link to="/products"
+              <router-link @click="closebar" to="/products"
                 ><span id="peach">Products</span></router-link
               >
-              <router-link to="/contact"
+              <router-link @click="closebar" to="/contact"
                 ><span id="peach">Contact</span></router-link
               >
-              <router-link to="/cart">
+              <router-link @click="closebar" to="/cart">
                 <button class="btn">Cart ({{ num }})</button>
               </router-link>
               <editUserModal :user="user" />
             </div>
             <div v-if="admin" class="d-flex flex-column">
-              <router-link to="/admin"
+              <router-link @click="closebar" to="/admin"
                 ><span id="peach">Admin</span></router-link
               >
-              <router-link to="/users"
+              <router-link @click="closebar" to="/users"
                 ><span id="peach">Users</span></router-link
               >
             </div>
@@ -78,10 +77,10 @@
               </router-link>
             </div>
             <div v-else class="d-flex flex-column">
-              <router-link to="/login"
+              <router-link @click="closebar" to="/login"
                 ><span id="peach">Login</span></router-link
               >
-              <router-link to="/register"
+              <router-link @click="closebar" to="/register"
                 ><span id="peach">Register</span></router-link
               >
             </div>
@@ -131,6 +130,9 @@ export default {
       this.$store.state.cart = null;
       this.$store.state.token = null;
       this.$store.state.admin = false;
+    },
+    closebar() {
+      document.getElementById("button").click();
     },
   },
 };

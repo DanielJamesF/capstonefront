@@ -1,5 +1,5 @@
 <template>
-  <section id="usersSection" class="p-5" v-if="admin">
+  <section id="usersSection" v-if="admin">
     <div v-if="user">
       <div v-if="users">
         <div class="container-fluid">
@@ -86,21 +86,26 @@ export default {
 }
 th {
   color: white;
+  font-size: 10px;
 }
 i {
   color: white;
+  font-size: 10px;
 }
 i:hover{
   color: black;
 }
 td{
   color: white;
+  font-size: 10px;
 }
 td:hover{
   color: black;
 }
 #else {
   height: 100vh;
+  padding-top: 80px;
+  background-color: rgb(142, 142, 142);
 }
 .btn:hover {
   background-color: lightslategray;

@@ -2,9 +2,9 @@
   <section id="admin">
     <div v-if="admin">
       <div v-if="products">
-        <div class="container text-center">
+        <div class="container-fluid">
           <h2>User: {{ user.firstname }}</h2>
-          <table class="table table-stripe">
+          <table class="table">
             <thead>
               <tr>
                 <th scope="col">id</th>
@@ -22,28 +22,30 @@
                 </th>
               </tr>
             </thead>
-            <tr v-for="product in products" :key="product">
-              <td>{{ product.id }}</td>
-              <td>{{ product.title }}</td>
-              <td>R{{ product.price }}.00</td>
-              <td>{{ product.userid }}</td>
-              <td>
-                <a
-                  type="button"
-                  class="btn"
-                  data-bs-toggle="modal"
-                  :data-bs-target="'#update' + product.id"
-                  ><i class="fa-solid fa-pen-to-square"></i
-                ></a>
-                <a
-                  class="btn"
-                  id="delete"
-                  @click="$store.dispatch('deleteProduct', product.id)"
-                  ><i class="fa-solid fa-trash-can"></i
-                ></a>
-              </td>
-              <updateModal :product="product" />
-            </tr>
+            <tbody>
+              <tr v-for="product in products" :key="product">
+                <td>{{ product.id }}</td>
+                <td>{{ product.title }}</td>
+                <td>R{{ product.price }}.00</td>
+                <td>{{ product.userid }}</td>
+                <td>
+                  <a
+                    type="button"
+                    class="btn"
+                    data-bs-toggle="modal"
+                    :data-bs-target="'#update' + product.id"
+                    ><i class="fa-solid fa-pen-to-square"></i
+                  ></a>
+                  <a
+                    class="btn"
+                    id="delete"
+                    @click="$store.dispatch('deleteProduct', product.id)"
+                    ><i class="fa-solid fa-trash-can"></i
+                  ></a>
+                </td>
+                <updateModal :product="product" />
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
@@ -94,19 +96,22 @@ export default {
   background-color: rgb(142, 142, 142);
   color: white;
 }
-th{
+th {
   color: white;
+  font-size: 10px;
 }
-i{
+i {
   color: white;
+  font-size: 10px;
 }
-i:hover{
+i:hover {
   color: black;
 }
-td{
+td {
   color: white;
+  font-size: 10px;
 }
-td:hover{
+td:hover {
   color: black;
 }
 #else {

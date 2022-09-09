@@ -121,6 +121,6 @@ input:hover {
   border-radius: 0;
 }
 h2 {
-  font-size: 80px;
+  font-size: 70px;
 }
 </style>
